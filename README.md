@@ -1,6 +1,5 @@
 # Java 8 ile gelen yenilikler
-[TOCM]
-[TOC]
+
 ##  Lambda Expression
 Genel olarak programlama dilinde Lambda ifadesi bir anonim fonksiyondur (İsmi ve tanımlayıcısı olmadan parametrelerden ve fonksiyon gövdesinden oluşan bir yapı.). Parametreler ve gövdeyi ayırmak için ok (->) kullanılır.
 Java 8 den önce Runnable new'lemek istediğimizde içindeki anonim run iç metodunu örnekte olduğu gibi yazabiliyorduk.
