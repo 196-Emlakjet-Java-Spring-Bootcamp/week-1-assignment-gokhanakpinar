@@ -324,3 +324,47 @@ Concurrent programlamada en yaygın senaryolardan biri, birden çok thread taraf
 - DelayQueue
 - Lock
 - Phaser
+
+## Yeni Date and Time API
+
+3 adet yeni class olusturuldu bunlar LocalDate, LocalTime ve LocalDateTime
+
+- LocalDate
+sinifi tarihi temsil eder ve zaman ile ilgili veya zaman dilimi ile ilgili herhangi bir gosterim saglamaz.
+
+```java
+LocalDate localDate = LocalDate.now();
+System.out.println(localDate.toString());                //2022-05-25
+System.out.println(localDate.getDayOfWeek().toString()); //WEDNESDAY
+System.out.println(localDate.getDayOfMonth());           //25
+System.out.println(localDate.getDayOfYear());            //145
+System.out.println(localDate.isLeapYear());              //false
+System.out.println(localDate.plusDays(12).toString());   //2022-06-08
+
+```
+
+- LocalTime
+sinifi zamani temsil eder ve tarih ile ilgili veya zaman dilimi ile ilgili herhangi bir gosterim saglamaz.
+
+```java
+LocalTime localTime = LocalTime.now();     //toString() in format 09:57:59.744
+LocalTime localTime = LocalTime.of(12, 20);
+System.out.println(localTime.toString());    //12:20
+System.out.println(localTime.getHour());     //12
+System.out.println(localTime.getMinute());   //20
+System.out.println(localTime.getSecond());   //0
+System.out.println(localTime.MIDNIGHT);      //00:00
+System.out.println(localTime.NOON);          //12:00
+```
+
+- LocalDateTime
+sinifi hem tarihi hemde zamani gosteren bir classtir fakat zaman dilimi ile ilgili bir gosterim saglamaz.
+
+```java
+LocalDateTime localDateTime = LocalDateTime.now(); 
+System.out.println(localDateTime.toString());      //2013-05-15T10:01:14.911
+System.out.println(localDateTime.getDayOfMonth()); //15
+System.out.println(localDateTime.getHour());       //10
+System.out.println(localDateTime.getNano());       //911000000
+```
+
