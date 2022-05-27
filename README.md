@@ -194,5 +194,78 @@ System.out.println("Elemanlarin toplami " + sum);
 Elemanlarin toplami 16
 ```
 
+## Functional interfaceler ve default methodlar
 
+**Functional Interface Nedir ?**
+Java 8 de tanitilan Functional Interfaceler iclerinde sadece bir adet abstract methodlari bulunan interfacelere denir.Java 8 den once bu tarz durumlarda anonim ic class olusturmamiz veya bu interface'i implemente etmemiz gerekiyordu asagidaki ornek gibi
 
+```java
+new Thread(new Runnable() {
+            @Override public void run()
+            {
+                System.out.println("New thread created");
+            }
+        }).start();
+```
+
+**Output**
+```
+New thread created
+```
+
+Java 8 den sonra Lambda Expressionlar ile birlikte ayni islemi daha basit bir sekilde asagidaki gibi yapabiliriz.
+
+```java
+new Thread(() -> {
+            System.out.println("New thread created");
+        }).start();
+```
+
+**Output**
+```
+New thread created
+```
+
+**Java 8 ile Birlikte gelen Default Methods**
+Java 8 ile birlikte gelen default methodlar ile birlikte eger methodu override etmediysek varsayilan(default) olarak calisacak olan kod bloklaridir. Bir ornekle anlamaya calisalim.
+
+```java
+public interface Moveable {
+    default void move(){
+        System.out.println("I am moving");
+    }
+}
+```
+
+```java
+public class Animal implements Moveable{
+    public static void main(String[] args){
+        Animal tiger = new Animal();
+        tiger.move();
+    }
+}
+```
+
+**Output**
+```
+I am moving
+```
+
+```java
+public class Animal implements Moveable{
+     
+    public void move(){
+        System.out.println("I am running");
+    }
+     
+    public static void main(String[] args){
+        Animal tiger = new Animal();
+        tiger.move();
+    }
+}
+```
+
+**Output**
+```
+I am running
+```
