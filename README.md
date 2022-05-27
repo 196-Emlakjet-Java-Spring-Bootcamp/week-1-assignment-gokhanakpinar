@@ -672,3 +672,30 @@ public record EmployeeRecord(Long id,
       
 }
 ```
+
+## NullPointerExceptions
+
+Önceden, NullPointerException (NPE) için belirli bir sınıf ve satırda bazı değerlerin boş olduğu bildiriliyor ve hata ayıklaması-tespiti kabus olabiliyordu. Artık Java, belirli bir kod satırında tam olarak neyin-hangi verinin null olduğunu göstererek problemin kolayca çözülmesini sağlıyor.
+
+```java
+public class HelpfulNullPointerException 
+{
+    public static void main(String[] args) 
+    {
+        Employee e = null;
+          
+        System.out.println(e.getName());
+    }
+}
+```
+
+```
+Exception in thread "main" java.lang.NullPointerException: 
+    Cannot invoke "com.howtodoinjava.core.basic.Employee.getName()" because "e" is null
+    at com.howtodoinjava.core.basic.HelpfulNullPointerException.main 
+    (HelpfulNullPointerException.java:9)
+```
+
+# Kaynakca
+https://howtodoinjava.com/
+https://medium.com/huawei-developers-tr/java-versiyonlar%C4%B1-ve-gelen-yenilikler-8-16
