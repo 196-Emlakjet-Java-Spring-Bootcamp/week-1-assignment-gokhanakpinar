@@ -72,7 +72,7 @@ memberNames.add("Lokesh");
 ```
 
 - Stream.filter()
-filter() methodu bir kosul kabul ederek Stream elemanlarini filtreler.
+methodu bir kosul kabul ederek Stream elemanlarini filtreler.
 
 ```java
 memberNames.stream().filter((s) -> s.startsWith("A"))
@@ -85,7 +85,7 @@ Aman
 ```
 
 - Stream.map()
-map() methodu her bir elemani verilen fonksiyona gore baska bir objeye donusturur.
+methodu her bir elemani verilen fonksiyona gore baska bir objeye donusturur.
 
 ```java
 memberNames.stream().filter((s) -> s.startsWith("A"))
@@ -99,7 +99,7 @@ AMAN
 ```
 
 - Stream.sorted()
-sorted() methodu elemanlari siralayacaktir eger biz kendi duzenledigimiz bir Comparator verirsek istedigimiz sekilde siralama yaptirabiliriz.
+methodu elemanlari siralayacaktir eger biz kendi duzenledigimiz bir Comparator verirsek istedigimiz sekilde siralama yaptirabiliriz.
 
 ```java
 memberNames.stream().sorted()
@@ -119,13 +119,14 @@ YANA
 ```
 
 - Stream.forEach()
-forEach methodu stream elemanlari uzerinde iterate etmemize yarar.
+methodu stream elemanlari uzerinde iterate etmemize yarar.
 ```java
 memberNames.forEach(System.out::println);
 ```
 
 - Stream.collect()
-collect() methodu Stream elemanlarini bir collection icine koymamiza yarar.
+methodu Stream elemanlarini bir collection icine koymamiza yarar.
+
 ```java
 List<String> memNamesInUppercase = memberNames.stream().sorted()
                             .map(String::toUpperCase)
@@ -140,7 +141,7 @@ System.out.print(memNamesInUppercase);
 ```
 
 - Stream.match()
-match() methodu verilen kosul ile eslesen Stream elemani olup olmadigini kontrol eder ve boolean bir deger doner.
+methodu verilen kosul ile eslesen Stream elemani olup olmadigini kontrol eder ve boolean bir deger doner.
 ```java
 boolean matchedResult = memberNames.stream()
         .anyMatch((s) -> s.startsWith("A"));
@@ -159,7 +160,7 @@ System.out.println(matchedResult);     //false
 ```
 
 - Stream.reduce()
-reduce() methodu verilen fonksiyona gore stream elemanlarini donusturecektir. Sonuc olarak Optinal donecektir cunku reduce() fonksiyonu geriye bos donebilir.
+methodu verilen fonksiyona gore stream elemanlarini donusturecektir. Sonuc olarak Optinal donecektir cunku reduce() fonksiyonu geriye bos donebilir.
 
 **Ornekler**
 ```java
