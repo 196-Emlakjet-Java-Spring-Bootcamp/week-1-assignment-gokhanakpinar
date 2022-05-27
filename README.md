@@ -479,9 +479,83 @@ public class HelloWorld {
         System.out.println("Hello World!");
     }
 }
-
 ```
+
+```console
 $ java HelloWorld.java
  
 Hello World!
+```
+
+## String API Degisiklikleri
+
+- String.repeat(Integer)
+metodu ile beraber string parametre olarak gonderilen integer degeri kadar tekrar eder. Bu rakam 0 ise veya verilen string bos ise geriye bos string doner.
+
+**Ornek**
+```java
+public class HelloWorld 
+{
+    public static void main(String[] args) 
+    {
+      String str = "1".repeat(5);
+ 
+        System.out.println(str);
+    }
+}
+```
+
+**Output**
+```
+11111
+```
+
+- String.isBlank()
+bu method string degeri bos ise veya icinde sadece bosluk var ise true doner. Dolu ise false doner.
+
+**Ornek**
+```java
+public class HelloWorld 
+{
+    public static void main(String[] args) 
+    {
+      "1".isBlank();  //false
+ 
+        "".isBlank(); //true
+ 
+        "    ".isBlank(); //true
+    }
+}
+```
+
+- String.strip()
+bu method string degerdeki bosluk karakterdeki bosluklari siler. String.stripLeading() ile string degerin basindaki ve String.stripTrailing() ile string degerden sonra gelen bosluk karakterlerini siler.
+
+**Ornek**
+```java
+    public static void main(String[] args) 
+    {
+      "   hi  ".strip();  //"hi"
+ 
+       "   hi  ".stripLeading();  //"hi   "
+ 
+       "   hi  ".stripTrailing(); //"   hi"
+    }
+```
+
+- String.lines()
+bu method birden fazla satirdan olusan string bir ifadeyi Stream'e donusturmek icin kullanilir.
+
+**Ornek**
+```java
+    public static void main(String[] args) 
+    {
+      String testString = "hello\nworld\nis\nexecuted";
+ 
+      List<String> lines = new ArrayList<>();
+ 
+      testString.lines().forEach(line -> lines.add(line));
+ 
+      assertEquals(List.of("hello", "world", "is", "executed"), lines);
+    }
 ```
