@@ -269,3 +269,40 @@ public class Animal implements Moveable{
 ```
 I am running
 ```
+
+## Optional
+
+Optional NullPointerException kontrol edilmemis durumlarda bu hatadan kacinmak icin kullanilabilir. Degeri olabilen veya degeri olmayan tip guvenli bir obje gonderdigi icin.
+
+**Ornek**
+
+```java
+public class OptionalValues {
+
+    private static List<Person> people = new ArrayList<>();
+
+    public static void main(String[] args) {
+        Optional<Person> maybePerson = getPersonByName("Bill");
+
+        if (maybePerson.isPresent()) {
+            System.out.println("Person was found");
+        } else {
+            System.out.println("Person was not found");
+        }
+    }
+
+    public static Optional<Person> getPersonByName(String name) {
+        for (Person p : people) {
+            if (p.getName().equals(name)) {
+                return Optional.of(p);
+            }
+        }
+        return Optional.empty();
+    }
+}
+```
+
+**Output**
+```
+Person was not found
+```
