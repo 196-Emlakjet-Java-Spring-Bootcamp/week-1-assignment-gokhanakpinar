@@ -559,3 +559,23 @@ bu method birden fazla satirdan olusan string bir ifadeyi Stream'e donusturmek i
       assertEquals(List.of("hello", "world", "is", "executed"), lines);
     }
 ```
+
+## Collection.toArray(IntFunction)
+
+Java 11'den once Collection'u array'e dondurmek biraz daha zordu. Java 11 bunu basitlestirdi.
+
+**Ornek**
+```java
+public static void main(String[] args) 
+    {
+      List<String> names = new ArrayList<>();
+      names.add("alex");
+      names.add("brian");
+      names.add("charles");
+ 
+      String[] namesArr1 = names.toArray(new String[names.size()]);   //Java 11'den once
+ 
+      String[] namesArr2 = names.toArray(String[]::new);          //Java 11 ile birlikte
+    }
+```
+
