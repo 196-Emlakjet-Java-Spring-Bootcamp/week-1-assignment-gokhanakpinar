@@ -306,3 +306,21 @@ public class OptionalValues {
 ```
 Person was not found
 ```
+
+## Concurrency API gelistirmesi
+
+Concurrent programlamada en yaygın senaryolardan biri, birden çok thread tarafından erişilen sayısal sayaçların güncellenmesidir. Senkronize bloklardan (yüksek düzeyde çekişme getiren) başlayarak, AtomicInteger(ler) için okuma/yazma kilitlerine kadar, yıllar içinde bunu yapmak için birçok deyim olmuştur. Sonuncular, doğrudan işlemci CAS talimatlarına dayandıklarından daha verimli olsalar da, gerekli semantiği doğru bir şekilde uygulamak için daha yüksek derecede aşinalık gerektirirler.Java 8 ile bu sorun, bir sayacın değerini thread güvenli bir şekilde çok verimli bir şekilde artırmanıza azaltmanıza olanak tanıyan yeni Concurrent accumulator sınıfları ile çözülür.
+
+**Concurrent Paketinin Baslica Komponentleri ve Araclari**
+- Executor
+- ExecutorService
+- ScheduledExecutorService
+- Future
+- CountDownLatch
+- CyclicBarrier
+- Semaphore
+- ThreadFactory
+- BlockingQueue
+- DelayQueue
+- Lock
+- Phaser
