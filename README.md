@@ -600,3 +600,21 @@ Java 11 bu overload methodlari kullanarak dosyadan okuma ve yazma islemlerini ba
     }
 ```
 
+## Optinal.isEmpty()
+
+Optional sinifini daha once Java 8 de gormustuk Optinal sinifinin isPresent() methodunun tam tersi olarak calisir isEmpty() methodu.
+
+```java
+public static void main(String[] args) 
+    {
+      String currentTime = null;
+ 
+      assertTrue(!Optional.ofNullable(currentTime).isPresent());  //It's negative condition
+      assertTrue(Optional.ofNullable(currentTime).isEmpty());   //Write it like this
+ 
+      currentTime = "12:00 PM";
+ 
+      assertFalse(!Optional.ofNullable(currentTime).isPresent()); //It's negative condition
+      assertFalse(Optional.ofNullable(currentTime).isEmpty());  //Write it like this
+    }
+```
