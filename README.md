@@ -618,3 +618,57 @@ public static void main(String[] args)
       assertFalse(Optional.ofNullable(currentTime).isEmpty());  //Write it like this
     }
 ```
+
+# Java 14 ile gelen yenilikler
+
+## Pattern Matching for instanceof(Preview)
+
+Nesnenin turunu kontrol etmek ve kullanmak icin instanceof kontrolunun ardindan cast ozelligini kullanmadan islem yapmamizi saglar.
+
+```java
+if (obj instanceof String s) {
+    // s'i burada kullanabiliriz
+} else {
+    // s'i burada kullanamayiz.
+}
+```
+
+## Switch Expression Gelistirmeleri
+
+Switch ifadeleri daha da gelistirilerek Case basina birden cok sabite izin veren lambda ifadelerinin kullanimini saglar.
+
+**Ornek**
+
+```java
+public static Boolean isWeekDay (Day day) 
+{
+    Boolean result = switch(day) {
+        case MON, TUE, WED, THUR, FRI ->
+        { 
+            System.out.println("It is WeekDay");
+            yield true; 
+        }
+        case SAT, SUN ->
+        { 
+            System.out.println("It is Weekend");
+            yield false; 
+        }
+    };
+    return result;
+}
+```
+
+## Data Classes
+
+record anahtar sozcugu ile deklera edilen Data siniflari otomatik olarak getter setter costructor equals() gibi standart methodlara sahip olarak olusmaktadir.
+
+**Ornek**
+```java
+public record EmployeeRecord(Long id, 
+        String firstName, 
+        String lastName, 
+        String email, 
+        int age) {
+      
+}
+```
