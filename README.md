@@ -469,3 +469,19 @@ private CompletableFuture<Void> verifyUri(HttpClient httpClient,
 ```
 
 ##  Tek Dosyadan Olusan Programlari Compile Etmeden Calistirma
+
+Test amacli bazen yazilan kodlari calistirmak istedigimizde bu kodun derlenip daha sonra calistirilmasi uzun bir islem.
+Java 11 ile gelen degisikliklerden biride yazdigimiz kod eger sadece java.base modulunu kullaniyor dis bir bagimliligi yok ise ve tek dosyalik bir program ise konsoldan java komutu ile derlenmeden calismasini saglayabiliriz.
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+
+```
+$ java HelloWorld.java
+ 
+Hello World!
+```
