@@ -579,3 +579,24 @@ public static void main(String[] args)
     }
 ```
 
+## Files.readString() ve Files.writeString()
+
+Java 11 bu overload methodlari kullanarak dosyadan okuma ve yazma islemlerini basitlestirmistir.
+
+**Ornek**
+```java
+    public static void main(String[] args) 
+    {
+      //Read file as string
+      URI txtFileUri = getClass().getClassLoader().getResource("helloworld.txt").toURI();
+ 
+      String content = Files.readString(Path.of(txtFileUri),Charset.defaultCharset());
+ 
+      //Write string to file
+      Path tmpFilePath = Path.of(File.createTempFile("tempFile", ".tmp").toURI());
+ 
+      Path returnedFilePath = Files.writeString(tmpFilePath,"Hello World!", 
+                    Charset.defaultCharset(), StandardOpenOption.WRITE);
+    }
+```
+
